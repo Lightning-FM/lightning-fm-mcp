@@ -45,7 +45,7 @@ npm run dev     # runs src/index.ts directly via tsx
 npm run build   # tsc -> dist/
 ```
 
-`src/nostr/track.ts` mirrors the kind 31337 parsing in [`station-server/src/catalog/track.ts`](https://github.com/maml/lightning-fm-station/blob/main/src/catalog/track.ts) and [`app-desktop/src-tauri/src/relay.rs`](https://github.com/maml/lightning-fm-desktop). All three must agree on tag names — this is the platform's public wire format, documented in full at [lightning.fm/interop](https://lightning.fm/interop).
+`src/nostr/track.ts` mirrors the kind 31337 parsing in `station-server/src/catalog/track.ts` (private repo) and [`app-desktop/src-tauri/src/relay.rs`](https://github.com/Lightning-FM/lightning-fm-desktop/blob/main/src-tauri/src/relay.rs). All three must agree on tag names — this is the platform's public wire format, documented in full at [lightning.fm/interop](https://lightning.fm/interop).
 
 ## License
 

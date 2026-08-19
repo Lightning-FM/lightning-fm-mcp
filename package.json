@@ -2,7 +2,7 @@
   "name": "lightning-fm-mcp",
   "version": "0.1.1",
   "description": "MCP server for Lightning FM's Nostr-native music catalog — search tracks, look up artists, and check what's live now. Wraps the same relay + Blossom surfaces the platform itself uses; no separate agent API.",
-  "mcpName": "io.github.maml/lightning-fm-mcp",
+  "mcpName": "io.github.Lightning-FM/lightning-fm-mcp",
   "type": "module",
   "bin": {
     "lightning-fm-mcp": "dist/index.js"
@@ -31,7 +31,7 @@
   "homepage": "https://lightning.fm",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maml/lightning-fm-mcp.git"
+    "url": "git+https://github.com/Lightning-FM/lightning-fm-mcp.git"
   },
   "engines": {
     "node": ">=18"
