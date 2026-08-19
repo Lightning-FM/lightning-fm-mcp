@@ -1,0 +1,46 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.maml/lightning-fm-mcp",
+  "description": "Search Lightning FM's Nostr music catalog, look up artists, and check what's live now.",
+  "repository": {
+    "url": "https://github.com/maml/lightning-fm-mcp",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "lightning-fm-mcp",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Comma-separated relay URLs to query. Only add a relay here if it gates writes the way relay.lightning.fm does (allowlisted artists only) — an unrestricted public relay hands back every other app's kind-31337 events too, not just Lightning FM's.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false,
+          "name": "LFM_NOSTR_RELAYS",
+          "default": "wss://relay.lightning.fm"
+        },
+        {
+          "description": "Blossom server audio/image hashes resolve against.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false,
+          "name": "LFM_BLOSSOM_URL",
+          "default": "https://media.lightning.fm"
+        },
+        {
+          "description": "How long a fetched catalog/profile/now-playing snapshot is reused, in milliseconds, before the next tool call re-queries the relays.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false,
+          "name": "LFM_CACHE_TTL_MS",
+          "default": "60000"
+        }
+      ]
+    }
+  ]
+}
