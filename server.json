@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.Lightning-FM/lightning-fm-mcp",
+  "name": "fm.lightning/lightning-fm-mcp",
   "description": "Search Lightning FM's Nostr music catalog, look up artists, and check what's live now.",
   "repository": {
     "url": "https://github.com/Lightning-FM/lightning-fm-mcp",
     "source": "github"
   },
-  "version": "0.1.2",
+  "version": "0.1.3",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "lightning-fm-mcp",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "transport": {
         "type": "stdio"
       },
