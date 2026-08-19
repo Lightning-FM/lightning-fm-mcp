@@ -4,13 +4,13 @@
   "description": "MCP server for Lightning FM's Nostr-native music catalog — search tracks, look up artists, and check what's live now. Wraps the same relay + Blossom surfaces the platform itself uses; no separate agent API.",
   "type": "module",
   "bin": {
-    "lightning-fm-mcp": "./dist/index.js"
+    "lightning-fm-mcp": "dist/index.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && chmod +x dist/index.js",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
     "test": "tsx --test tests/*.test.ts",
