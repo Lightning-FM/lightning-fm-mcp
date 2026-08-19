@@ -1,0 +1,50 @@
+{
+  "name": "lightning-fm-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Lightning FM's Nostr-native music catalog — search tracks, look up artists, and check what's live now. Wraps the same relay + Blossom surfaces the platform itself uses; no separate agent API.",
+  "type": "module",
+  "bin": {
+    "lightning-fm-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "tsx --test tests/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "nostr",
+    "lightning-network",
+    "bitcoin",
+    "music",
+    "lightning-fm"
+  ],
+  "license": "MIT",
+  "author": "Matt Loseke",
+  "homepage": "https://lightning.fm",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maml/lightning-fm-mcp.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "nostr-tools": "^2.23.3",
+    "ws": "^8.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
