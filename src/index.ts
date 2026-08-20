@@ -3,9 +3,9 @@
 //
 // Wraps the same Nostr relay and Blossom surfaces Lightning FM itself
 // runs on. There is no separate agent API and no data this server can
-// see that a human client couldn't also see by querying the same relays —
-// deliberately, per protocol:agent_queryable_music_knowledge_graph's
-// surviving principle: "don't build a separate agent API."
+// see that a human client couldn't also see by querying the same relays.
+// That is deliberate: agents get the documented wire format rather than a
+// private one that can drift away from it.
 
 import { createRequire } from 'node:module';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
