@@ -1,7 +1,7 @@
 {
   "name": "lightning-fm-mcp",
   "version": "0.1.5",
-  "description": "MCP server for Lightning FM's Nostr-native music catalog — search tracks, look up artists, and check what's live now. Wraps the same relay + Blossom surfaces the platform itself uses; no separate agent API.",
+  "description": "MCP server for Lightning FM's Nostr-native music catalog \u2014 search tracks, look up artists, and check what's live now. Wraps the same relay + Blossom surfaces the platform itself uses; no separate agent API.",
   "mcpName": "fm.lightning/lightning-fm-mcp",
   "type": "module",
   "bin": {
@@ -15,7 +15,9 @@
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
     "test": "tsx --test tests/*.test.ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "node scripts/sync-server-json.mjs --check && npm run build && npm test",
+    "version": "node scripts/sync-server-json.mjs && git add server.json",
+    "postpublish": "node scripts/publish-registry.mjs"
   },
   "keywords": [
     "mcp",
