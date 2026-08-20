@@ -56,6 +56,29 @@ All environment variables are optional; defaults point at production. Nothing he
 | `LFM_BLOSSOM_URL` | `https://media.lightning.fm` | Blossom server audio/image hashes resolve against. |
 | `LFM_CACHE_TTL_MS` | `60000` | How long a fetched snapshot is reused before the next tool call re-queries the relays. |
 
+## What this sends
+
+Nothing about you, ever. This server has no telemetry, no analytics, no
+phone-home, and no opt-in flag for any of the above. It reports nothing to
+Lightning FM.
+
+The one thing it does send is a `User-Agent` header on its outbound relay
+connections:
+
+```
+User-Agent: lightning-fm-mcp/<version>
+```
+
+That is the software naming itself. It is byte-identical for every install,
+contains no identifier, and says nothing about you or your machine. Without
+it the underlying websocket library sends its own default `User-Agent`
+instead, so this replaces one generic string with a specific one; it does
+not add a channel. It exists so Lightning FM can tell agent catalog queries
+apart from browser traffic in its own relay logs.
+
+If you would rather not send it, `npm` and a one-line edit to `src/config.ts`
+are all it takes. It is a measurement aid, not a control.
+
 ## Development
 
 ```sh

@@ -55,7 +55,9 @@ export async function getCatalog(): Promise<TrackInfo[]> {
 function fetchFromRelay(relayUrl: string): Promise<TrackInfo[]> {
   return new Promise((resolve) => {
     const tracks: TrackInfo[] = [];
-    const ws = new WebSocket(relayUrl);
+    const ws = new WebSocket(relayUrl, {
+      headers: { 'User-Agent': config.userAgent },
+    });
     const subId = 'catalog-' + Math.random().toString(36).slice(2, 8);
     const timeout = setTimeout(() => { ws.close(); resolve(tracks); }, config.fetchTimeoutMs);
 

@@ -45,7 +45,9 @@ export async function fetchProfiles(pubkeys: string[]): Promise<Map<string, Arti
 function fetchProfilesFromRelay(relayUrl: string, pubkeys: string[]): Promise<Map<string, ArtistProfile>> {
   return new Promise((resolve) => {
     const profiles = new Map<string, ArtistProfile>();
-    const ws = new WebSocket(relayUrl);
+    const ws = new WebSocket(relayUrl, {
+      headers: { 'User-Agent': config.userAgent },
+    });
     const subId = 'profiles-' + Math.random().toString(36).slice(2, 8);
     const timeout = setTimeout(() => { ws.close(); resolve(profiles); }, config.fetchTimeoutMs);
 

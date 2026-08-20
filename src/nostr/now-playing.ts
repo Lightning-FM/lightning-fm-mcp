@@ -36,7 +36,9 @@ export async function getNowPlaying(): Promise<NowPlaying | null> {
 function fetchFromRelay(relayUrl: string): Promise<NowPlaying | null> {
   return new Promise((resolve) => {
     let latest: NowPlaying | null = null;
-    const ws = new WebSocket(relayUrl);
+    const ws = new WebSocket(relayUrl, {
+      headers: { 'User-Agent': config.userAgent },
+    });
     const subId = 'now-playing-' + Math.random().toString(36).slice(2, 8);
     const timeout = setTimeout(() => { ws.close(); resolve(latest); }, config.fetchTimeoutMs);
 
